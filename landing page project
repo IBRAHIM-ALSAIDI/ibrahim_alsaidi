@@ -1,0 +1,199 @@
+styles.css
+css
+Copy
+/* Navbar styles */
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+}
+
+#navbar__list {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar__list li a {
+    display: block;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#navbar__list li a:hover,
+#navbar__list li a.active {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Section styles */
+.landing__container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+section {
+    min-height: 100vh;
+}
+
+section.active {
+    display: block;
+}
+
+/* Miscellaneous styles */
+.main__hero {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 50px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+index.html
+html
+Copy
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav id="navbar">
+        <ul id="navbar__list"></ul>
+    </nav>
+    <header class="main__hero">
+        <h1>Landing Page</h1>
+    </header>
+    <main>
+        <section id="section1" data-nav="Section 1" class="active">
+    <div class="landing__container">
+        <h2>Section 1</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut elit non lectus efficitur ullamcorper a sed sapien. Praesent bibendum nibh sit amet justo dignissim, id consequat elit luctus.</p>
+        <!-- Add your additional content here -->
+        <p>Additional content...</p>
+    </div>
+</section>
+        <section id="section2" data-nav="Section 2">
+            <div class="landing__container">
+                <h2>Section 2</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut elit non lectus efficitur ullamcorper a sed sapien. Praesent bibendum nibh sit amet justo dignissim, id consequat elit luctus.</p>
+            </div>
+        </section>
+        <section id="section3" data-nav="Section 3">
+            <div class="landing__container">
+                <h2>Section 3</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut elit non lectus efficitur ullamcorper a sed sapien. Praesent bibendum nibh sit amet justo dignissim, id consequat elit luctus.</p>
+            </div>
+        </section>
+        <section id="section4" data-nav="Section 4">
+            <div class="landing__container">
+                <h2>Section 4</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut elit non lectus efficitur ullamcorper a sed sapien. Praesent bibendum nibh sit amet justo dignissim, id consequat elit luctus.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Landing Page</p>
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+</html>
+app.js
+javascript
+Copy
+// Define all sections
+const sections = document.querySelectorAll('section');
+
+// Define navbar list
+const navbarList = document.getElementById('navbar__list');
+
+// Build the navigation menu
+const buildNav = () => {
+    let navItems = '';
+    sections.forEach((section) => {
+        const sectionId = section.getAttribute('id');
+        const sectionName = section.getAttribute('data-nav');
+        navItems += `<li><a class="menu__link" href="#${sectionId}">${sectionName}</a></li>`;
+    });
+    navbarList.innerHTML = navItems;
+};
+
+// Scroll to anchor ID when clicked
+const scrollToSection = (e) => {
+    e.preventDefault();
+    if (e.target.nodeName === 'A') {
+        const sectionId = e.target.getAttribute('href');
+        const section = document.querySelector(sectionId);
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+};
+
+// Add class 'active' to section when near top of viewport
+const setActiveSection = () => {
+    sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 50;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            section.classList.add('active');
+            document.querySelector(`a[href="#${sectionId}"]`).classList.add('active');
+        } else {
+            section.classList.remove('active');
+            document.querySelector(`a[href="#${sectionId}"]`).classList.remove('active');
+        }
+    });
+};
+
+// Build the navigation menu
+buildNav();
+
+// Scroll to section on link click
+navbarList.addEventListener('click', scrollToSection);
+
+// Set sections as active
+document.addEventListener('scroll', setActiveSection);
+
+// Set current year in footer
+const currentYear = new Date().getFullYear();
+document.querySelector('footer p').innerHTML = `&copy; ${currentYear} Landing Page`;
+
+README.md
+sql_more
+Copy
+# Landing Page Project
+
+This project was implemented by Ibrahim Alsaidi as part of the Udacity Front End Web Developer Nanodegree program. It implements a basic landing page with a fixed navigation menu that dynamically updates as the user scrolls through the page. The navigation menu is built dynamically using JavaScript based on the contents of the sections on the page. Clicking on a menu item causes the page to smoothly scroll to the corresponding section. Additionally, as the user scrolls through the page, the currently active section is highlighted in the navigation menu.
+
+## Usage
+
+To use the landing page, simply open the `index.html` file in your web browser. You can then scroll through the page and click on the navigation menu items to navigate to the different sections.
+
+## Files
+
+- `index.html` - the main HTML file that defines the structure of the landing page
+- `css/styles.css` - the stylesheet that defines the styles for the landing page
+- `js/app.js` - the JavaScript file that implements the dynamic navigation menu and scrolling functionality
+- `README.md` - this file
+
+## Credits
+
+This project was implemented by Ibrahim Alsaidi as part of the Udacity Front End Web Developer Nanodegree program.
+
