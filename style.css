@@ -1,0 +1,112 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fnil\fcharset0 HelveticaNeue-Medium;
+}
+{\colortbl;\red255\green255\blue255;\red6\green12\blue18;\red237\green239\blue239;\red0\green0\blue0;
+}
+{\*\expandedcolortbl;;\cssrgb\c1961\c5490\c9020;\cssrgb\c94510\c94902\c94902;\cssrgb\c0\c0\c0;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat4\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh14860\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs36 \cf2 \cb3 \expnd0\expndtw0\kerning0
+server.js
+\f1\b0 \
+javascript\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf2 \cb3 \
+
+\f1 \cf4 \cb3 style.css\
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0\cf4 body\{\
+  background: #fffff8;\
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;\
+\}\
+\
+#app \{\
+  display: grid;\
+  grid-auto-rows: minmax(150px, auto); \
+  height:100vh;\
+  background: #f23557;\
+  color: #f0d43a;\
+  justify-content: center;\
+  grid-gap: 1em;\
+  font-size: 20px;\
+  font-family: 'Oswald', sans-serif;\
+\}\
+\
+.entry \{\
+  background: rgba(59, 74, 107, .4);\
+\}\
+\
+.headline \{\
+  font-size: 36px;\
+\}\
+\
+.title \{\
+  font-size: 26px;  \
+\}\
+\
+/* Basic Styling */\
+\
+label \{\
+  display:block;\
+  font-size: 27px;\
+\}\
+\
+input \{\
+  display:block;\
+  height: 60px;\
+  width: 320px;\
+  background:#22b2da;\
+  color: #f0d43a;\
+  font-size: 20px;\
+  font-family: 'Oswald', sans-serif;\
+  border: none;\
+\}\
+\
+button \{\
+  width: 400px;\
+  height: 100px;\
+  background: #3b4a6b;\
+  color: #f0d43a;\
+  font-size: 26px;\
+  font-family: 'Oswald', sans-serif;\
+  border: none;\
+  box-shadow: 2px 4px 5px #444;\
+\}\
+\
+textarea \{\
+  background:#22b2da;\
+  color: #f0d43a;\
+  font-size: 20px;\
+  font-family: 'Oswald', sans-serif; \
+\}\
+\
+/* Reset style */\
+input:focus,\
+select:focus,\
+textarea:focus, \
+button:focus \{\
+  outline: none;\
+\}\
+\
+/* Placeholder Text Style */\
+::placeholder \{\
+  color: #f0d43a;\
+  font-family: 'Oswald', sans-serif;  \
+\}\
+\
+:-ms-input-placeholder \{\
+  color: #f0d43a;\
+  font-family: 'Oswald', sans-serif;\
+\}\
+\
+::-ms-input-placeholder \{\
+  color: #f0d43a;\
+  font-family: 'Oswald', sans-serif; \
+\}}
